@@ -1,0 +1,17 @@
+[package]
+name = "open-ambient"
+version = "0.0.0"
+description = "Open files and directories with constant paths"
+authors = ["Dan Gohman <dev@sunfishcode.online>"]
+edition = "2018"
+license = "Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT"
+keywords = ["io"]
+categories = ["rust-patterns"]
+repository = "https://github.com/sunfishcode/open-ambient"
+exclude = ["/.github"]
+
+[dev-dependencies]
+cap-std = { git = "https://github.com/bytecodealliance/cap-std" }
+
+[badges]
+maintenance = { status = "actively-developed" }
