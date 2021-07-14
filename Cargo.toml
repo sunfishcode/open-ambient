@@ -10,7 +10,7 @@ categories = ["rust-patterns"]
 repository = "https://github.com/sunfishcode/open-ambient"
 exclude = ["/.github"]
 
-[dev-dependencies]
+[dependencies]
 cap-std = { git = "https://github.com/bytecodealliance/cap-std" }
 
 [badges]
