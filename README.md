@@ -29,13 +29,13 @@ To use, it add `#![deny(clippy::disallowed_method)]` to your code and copy
 use open_ambient::open_ambient_file;
 
 fn main() {
-    let ok = open_ambient_file!("Cargo.toml").unwrap();
-    // ... do stuff with `ok`
-    drop(ok);
+    let fine = open_ambient_file!("Cargo.toml").unwrap();
+    // ... do stuff with `fine`
+    drop(fine);
 
-    let ambient = std::fs::File::open("Cargo.toml").unwrap();
-    // ... do stuff with `ambient`
-    drop(ambient);
+    let risky = std::fs::File::open("Cargo.toml").unwrap();
+    // ... do stuff with `risky`
+    drop(risky);
 }
 ```
 
@@ -46,8 +46,8 @@ gets just one error:
 error: use of a disallowed method `std::fs::File::open`
   --> test.rs:10:19
    |
-10 |     let ambient = std::fs::File::open("Cargo.toml").unwrap();
-   |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10 |     let risky = std::fs::File::open("Cargo.toml").unwrap();
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
    |
 ```
 
