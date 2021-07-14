@@ -20,8 +20,42 @@ which open files and directories in a way that requires the paths to be
 constant and in a way that allows them to be ignored in a clippy scan for
 use of dynamic ambient authority.
 
-See [here] for instructions on how to configure clippy for this purpose.
+To use, it add `#![deny(clippy::disallowed_method)]` to your code and copy
+[the clippy.toml file], as described [here], for example:
+
+```rust
+#![deny(clippy::disallowed_method)]
+
+use open_ambient::open_ambient_file;
+
+fn main() {
+    let ok = open_ambient_file!("Cargo.toml").unwrap();
+    // ... do stuff with `ok`
+    drop(ok);
+
+    let ambient = std::fs::File::open("Cargo.toml").unwrap();
+    // ... do stuff with `ambient`
+    drop(ambient);
+}
+```
+
+And run clippy configured with [these instructions]. The above code
+gets just one error:
+
+```
+error: use of a disallowed method `std::fs::File::open`
+  --> test.rs:10:19
+   |
+10 |     let ambient = std::fs::File::open("Cargo.toml").unwrap();
+   |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+```
+
+The `open_ambient_file!` line does not get an error, while the
+`std::fs::File::open` line does.
 
 [ambient-authority]: https://crates.io/crates/ambient-authority
 [cap-std]: https://crates.io/crates/cap-std
-[here]: https://github.com/sunfishcode/ambient-authority/blob/main/clippy.toml#L14
+[here]: https://github.com/sunfishcode/ambient-authority/blob/main/clippy.toml#L5
+[these instructions]: https://github.com/sunfishcode/ambient-authority/blob/main/clippy.toml#L18
+[the clippy.toml file]: https://github.com/sunfishcode/ambient-authority/blob/main/clippy.toml
