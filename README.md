@@ -2,7 +2,7 @@
   <h1><code>open-ambient</code></h1>
 
   <p>
-    <strong>Ambient Authority</strong>
+    <strong>Open files and directories with constant paths</strong>
   </p>
 
   <p>
