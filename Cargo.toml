@@ -11,7 +11,7 @@ repository = "https://github.com/sunfishcode/open-ambient"
 exclude = ["/.github"]
 
 [dependencies]
-cap-std = { git = "https://github.com/bytecodealliance/cap-std" }
+cap-std = "0.16.3"
 
 [badges]
 maintenance = { status = "actively-developed" }
