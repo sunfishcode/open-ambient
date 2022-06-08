@@ -11,4 +11,4 @@ repository = "https://github.com/sunfishcode/open-ambient"
 exclude = ["/.github"]
 
 [dependencies]
-cap-std = "0.22.0"
+cap-std = "0.24.0"
