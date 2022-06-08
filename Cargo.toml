@@ -12,6 +12,3 @@ exclude = ["/.github"]
 
 [dependencies]
 cap-std = "0.22.0"
-
-[badges]
-maintenance = { status = "actively-developed" }
