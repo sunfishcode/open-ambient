@@ -1,3 +1,5 @@
+#![allow(clippy::tests_outside_test_module)]
+
 use cap_std::fs::OpenOptions;
 use open_ambient::{open_ambient_dir, open_ambient_file, open_ambient_file_with};
 
